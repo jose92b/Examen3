@@ -3,11 +3,34 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+        <asp:Button ID="Button1" runat="server" Text="Consultar" OnClick="Consultar" />
+        <p></p>
+        <asp:Button ID="Button2" runat="server" Text="Consultar Todas" OnClick="ConsultarTodas" />
+        <p></p>
+        <asp:Button ID="Button3" runat="server" Text="Insertar" OnClick="Ingresar" />
+        <p></p>
+        <p>Tipo de Reserva:</p>
+        <asp:DropDownList ID="DropDownTR" runat="server">
+            <asp:ListItem>Desayuno</asp:ListItem>
+            <asp:ListItem>Almuerzo</asp:ListItem>
+            <asp:ListItem>Cena</asp:ListItem>
+        </asp:DropDownList>
+        <p>Fecha:</p>
+        <asp:TextBox ID="TxtFecha" runat="server"> </asp:TextBox>
+        <p>Nombre: </p>
+        <asp:TextBox ID="TxtNombre" runat="server"> </asp:TextBox>
+        <p>Cedula:</p>
+        <asp:TextBox ID="TxtCedula" runat="server"> </asp:TextBox>
+        <p>Label:</p>
+        <asp:Label ID="Label1" runat="server"> </asp:Label>
+
     </div>
 
+    <asp:GridView ID="grvReporte" runat="server" AllowPaging="true" AllowSorting="true" Style="font: 16px arial; color: grey; border-color: gainsboro; margin-top: 2%; margin-bottom: 2%">
+        <SelectedRowStyle BackColor="#7BC143"
+            ForeColor="Black"
+            Font-Bold="true" BorderStyle="Dotted" BorderWidth="1px" />
+    </asp:GridView>
     <div class="row">
         <div class="col-md-4">
             <h2>Getting started</h2>
@@ -38,5 +61,4 @@
             </p>
         </div>
     </div>
-
 </asp:Content>

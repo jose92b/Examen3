@@ -37,7 +37,7 @@ namespace Examen3
 
         internal void ConsultarProveedor(Entidad persona)
         {
-            String consulta = "select id, empresa, cont_nombbre, cont_telefono, cont_email, dias_espera from Proveedor where empresa = 'P&G'";
+            String consulta = "select id, empresa, cont_nombre, cont_telefono, cont_email, dias_espera from Proveedor where empresa = 'P&G'";
             adaptador.consultar(consulta);
         }
 

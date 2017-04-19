@@ -20,7 +20,16 @@ namespace Examen3
 
         protected void Consultar(object sender, EventArgs e)
         {
-            String consulta = "select id, empresa, cont_nombbre, cont_telefono, cont_email, dias_espera from Proveedor where empresa = 'P&G'";
+            String consulta = "select id, empresa, cont_nombre, cont_telefono, cont_email, dias_espera from Proveedor where empresa = 'P&G'";
+            DataTable tabla = adaptador.consultar(consulta);
+
+            grvReporte.DataSource = tabla;
+            grvReporte.DataBind();
+        }
+
+        protected void ConsultarProducto(object sender, EventArgs e)
+        {
+            String consulta = "select Name as Nombre, Color as Color, StandardCost as Costo, ListPrice as Precio from [SalesLT].[Product]";
             DataTable tabla = adaptador.consultar(consulta);
 
             grvReporte.DataSource = tabla;
@@ -28,27 +37,32 @@ namespace Examen3
         }
         //values(@empresa, @cont_nombre, @cont_telefono, @cont_email, @dias_espera); ";
 
-        protected void Insertar(String tipoReservas, String fechas, String nombres, String cedulas)
+        protected void Insertar(String Empresa, String ContNombre,, String ContTel, String ContMail, String DiasEspera)
         {
             String consulta = "insert into proveedor(empresa, cont_nombre, cont_telefono, cont_email, dias_espera) values (@empresa, @cont_nombre, @cont_telefono, @cont_email, @dias_espera);";
             SqlCommand comando = new SqlCommand(consulta);
 
-            SqlParameter tipo_reserva = new SqlParameter("@tipo_reserva", SqlDbType.VarChar, 10);
-            tipo_reserva.Value = tipoReservas;
+            SqlParameter empresa = new SqlParameter("@empresa", SqlDbType.VarChar, 30);
+            empresa.Value = Empresa;
 
-            SqlParameter fecha_reserva = new SqlParameter("@fecha_reserva", SqlDbType.VarChar, 10);
-            fecha_reserva.Value = fechas;
+            SqlParameter cont_nombre = new SqlParameter("@cont_nombre", SqlDbType.VarChar, 30);
+            empresa.Value = ContNombre;
 
-            SqlParameter nombre = new SqlParameter("@nombre_cliente", SqlDbType.VarChar, 30);
-            nombre.Value = nombres;
+            SqlParameter cont_telefono = new SqlParameter("@cont_telefono", SqlDbType.VarChar, 12);
+            empresa.Value = ContTel;
 
-            SqlParameter cedula = new SqlParameter("@cedula_cliente", SqlDbType.VarChar, 30);
-            cedula.Value = cedulas;
+            SqlParameter cont_email = new SqlParameter("@cont_email", SqlDbType.VarChar, 30);
+            empresa.Value = ContMail;
 
-            comando.Parameters.Add(tipo_reserva);
-            comando.Parameters.Add(fecha_reserva);
-            comando.Parameters.Add(cedula);
-            comando.Parameters.Add(nombre);
+            SqlParameter dias_espera = new SqlParameter("@dias_espera", SqlDbType.VarChar, 30);
+            empresa.Value = DiasEspera;
+
+
+            comando.Parameters.Add(Empresa);
+            comando.Parameters.Add(ContNombre);
+            comando.Parameters.Add(ContTel);
+            comando.Parameters.Add(ContMail);
+            comando.Parameters.Add(DiasEspera);
 
             adaptador.insertar(comando);
         }
