@@ -18,7 +18,7 @@ namespace Examen3
 
         }
 
-        protected void Consultar(object sender, EventArgs e)
+        protected void ConsultarProveedor(object sender, EventArgs e)
         {
             String consulta = "select id, empresa, cont_nombre, cont_telefono, cont_email, dias_espera from Proveedor where empresa = 'P&G'";
             DataTable tabla = adaptador.consultar(consulta);
@@ -35,9 +35,8 @@ namespace Examen3
             grvReporte.DataSource = tabla;
             grvReporte.DataBind();
         }
-        //values(@empresa, @cont_nombre, @cont_telefono, @cont_email, @dias_espera); ";
 
-        protected void Insertar(String Empresa, String ContNombre,, String ContTel, String ContMail, String DiasEspera)
+        protected void Insertar(String Empresa, String ContNombre, String ContTel, String ContMail, String DiasEspera)
         {
             String consulta = "insert into proveedor(empresa, cont_nombre, cont_telefono, cont_email, dias_espera) values (@empresa, @cont_nombre, @cont_telefono, @cont_email, @dias_espera);";
             SqlCommand comando = new SqlCommand(consulta);
@@ -65,15 +64,6 @@ namespace Examen3
             comando.Parameters.Add(DiasEspera);
 
             adaptador.insertar(comando);
-        }
-
-        protected void ConsultarTodas(object sender, EventArgs e)
-        {
-            String consulta = "select tipo_reserva as [Tipo de reserva], fecha_reserva as Fecha, nombre_cliente as Cliente, cedula_cliente as Cedula from reserva";
-            DataTable tabla = adaptador.consultar(consulta);
-
-            grvReporte.DataSource = tabla;
-            grvReporte.DataBind();
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Examen3
 
         Adaptador adaptador = new Adaptador();
 
-        internal void agregar(Entidad persona)
+        internal void Insertar(Entidad persona)
         {
             String consulta = "insert into proveedor(empresa, cont_nombre, cont_telefono, cont_email, dias_espera) values (@empresa, @cont_nombre, @cont_telefono, @cont_email, @dias_espera);";
             //values(@empresa, @cont_nombre, @cont_telefono, @cont_email, @dias_espera); ";

@@ -8,10 +8,10 @@ namespace Examen3
     public class Controladora
     {
         ControladoraBD controladoraBD = new ControladoraBD();
-        internal void agregar(object[] objeto)
+        internal void Insertar(object[] objeto)
         {
             Entidad persona = new Entidad(objeto);
-               controladoraBD.agregar(persona);
+               controladoraBD.Insertar(persona);
         }
     }
 }

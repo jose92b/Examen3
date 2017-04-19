@@ -3,26 +3,30 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="jumbotron">
-        <asp:Button ID="Button1" runat="server" Text="Consultar" OnClick="Consultar" />
+        <asp:Button ID="Button1" runat="server" Text="Consultar Proveedor" OnClick="ConsultarProveedor" />
         <p></p>
-        <asp:Button ID="Button2" runat="server" Text="Consultar Todas" OnClick="ConsultarTodas" />
+        <asp:Button ID="Button2" runat="server" Text="Consultar Producto" OnClick="ConsultarProducto" />
         <p></p>
-        <asp:Button ID="Button3" runat="server" Text="Insertar" OnClick="Ingresar" />
-        <p></p>
-        <p>Tipo de Reserva:</p>
-        <asp:DropDownList ID="DropDownTR" runat="server">
-            <asp:ListItem>Desayuno</asp:ListItem>
-            <asp:ListItem>Almuerzo</asp:ListItem>
-            <asp:ListItem>Cena</asp:ListItem>
-        </asp:DropDownList>
-        <p>Fecha:</p>
-        <asp:TextBox ID="TxtFecha" runat="server"> </asp:TextBox>
-        <p>Nombre: </p>
+
+    <%--    <asp:Button ID="Button3" runat="server" Text="Insertar Proveedor" OnClick="Insertar Proveedor" />
+        <p></p>--%>
+     <%--   <asp:Button ID="Button3" runat="server" Text="Insertar Proveedor" OnClick="Insertar" />
+        <p></p>--%>
+
+        <p>Empresa:</p>
+        <asp:TextBox ID="TextEmpresa" runat="server"> </asp:TextBox>
+
+        <p>Nombre:</p>
         <asp:TextBox ID="TxtNombre" runat="server"> </asp:TextBox>
-        <p>Cedula:</p>
-        <asp:TextBox ID="TxtCedula" runat="server"> </asp:TextBox>
-        <p>Label:</p>
-        <asp:Label ID="Label1" runat="server"> </asp:Label>
+       
+         <p>Telefono:</p>
+        <asp:TextBox ID="TxtTel" runat="server"> </asp:TextBox>
+       
+         <p>Email:</p>
+        <asp:TextBox ID="TxtEmail" runat="server"> </asp:TextBox>
+       
+         <p>Dias de Espera:</p>
+        <asp:TextBox ID="TxtDias" runat="server"> </asp:TextBox>
 
     </div>
 
@@ -31,6 +35,7 @@
             ForeColor="Black"
             Font-Bold="true" BorderStyle="Dotted" BorderWidth="1px" />
     </asp:GridView>
+
     <div class="row">
         <div class="col-md-4">
             <h2>Getting started</h2>
