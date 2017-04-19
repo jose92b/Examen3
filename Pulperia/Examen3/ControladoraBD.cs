@@ -15,18 +15,22 @@ namespace Examen3
 
         internal void agregar(Entidad persona)
         {
-            String consulta = "insert into Reserva(tipo_reserva, fecha_reserva, nombre_cliente, cedula_cliente) values (@tipo_reserva,@fecha,@cliente,@cedula);";
+            String consulta = "insert into proveedor(empresa, cont_nombre, cont_telefono, cont_email, dias_espera) values (@empresa, @cont_nombre, @cont_telefono, @cont_email, @dias_espera);";
+            //values(@empresa, @cont_nombre, @cont_telefono, @cont_email, @dias_espera); ";
+
             SqlCommand comando = new SqlCommand(consulta);
 
-            SqlParameter tipo_reserva = new SqlParameter("@tipo_reserva", SqlDbType.VarChar, 10);
-            SqlParameter fecha_reserva = new SqlParameter("@fecha", SqlDbType.VarChar, 10);
-            SqlParameter nombre = new SqlParameter("@cliente", SqlDbType.VarChar, 30);
-            SqlParameter cedula = new SqlParameter("@cedula", SqlDbType.VarChar, 30);
+            SqlParameter empresa = new SqlParameter("@empresa", SqlDbType.VarChar, 30);
+            SqlParameter cont_nombre = new SqlParameter("@cont_nombre", SqlDbType.VarChar, 30);
+            SqlParameter cont_telefono = new SqlParameter("@cont_telefono", SqlDbType.VarChar, 12);
+            SqlParameter cont_email = new SqlParameter("@cont_email", SqlDbType.VarChar, 30);
+            SqlParameter dias_espera = new SqlParameter("@dias_espera", SqlDbType.VarChar, 30);
 
-            comando.Parameters.Add("@tipo_reserva", SqlDbType.VarChar, 10).Value = persona;
-            comando.Parameters.Add("@fecha", SqlDbType.VarChar, 10).Value = persona;
-            comando.Parameters.Add("@cliente", SqlDbType.VarChar, 30).Value = persona;
-            comando.Parameters.Add("@cedula", SqlDbType.VarChar, 30).Value = persona;
+            comando.Parameters.Add("@empresa", SqlDbType.VarChar, 30).Value = persona;
+            comando.Parameters.Add("@cont_nombre", SqlDbType.VarChar, 30).Value = persona;
+            comando.Parameters.Add("@cont_telefono", SqlDbType.VarChar, 12).Value = persona;
+            comando.Parameters.Add("@cont_email", SqlDbType.VarChar, 30).Value = persona;
+            comando.Parameters.Add("@dias_espera", SqlDbType.VarChar, 30).Value = persona;
 
             adaptador.insertar(comando);
         }
@@ -39,7 +43,7 @@ namespace Examen3
 
         internal void ConsultarProducto(Entidad persona)
         {
-            String consulta = "select tipo_reserva as [Tipo de reserva], fecha_reserva as Fecha, nombre_cliente as Cliente, cedula_cliente as Cedula from reserva";
+            String consulta = "select Name as Nombre, Color as Color, StandardCost as Costo, ListPrice as Precio from [SalesLT].[Product]";
             adaptador.consultar(consulta);
         }
     }

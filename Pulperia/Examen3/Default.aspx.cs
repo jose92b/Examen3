@@ -20,16 +20,17 @@ namespace Examen3
 
         protected void Consultar(object sender, EventArgs e)
         {
-            String consulta = "select tipo_reserva as [Tipo de reserva], fecha_reserva as Fecha, nombre_cliente as Cliente, cedula_cliente as Cedula from reserva where num_reserva=1";
+            String consulta = "select id, empresa, cont_nombbre, cont_telefono, cont_email, dias_espera from Proveedor where empresa = 'P&G'";
             DataTable tabla = adaptador.consultar(consulta);
 
             grvReporte.DataSource = tabla;
             grvReporte.DataBind();
         }
+        //values(@empresa, @cont_nombre, @cont_telefono, @cont_email, @dias_espera); ";
 
         protected void Insertar(String tipoReservas, String fechas, String nombres, String cedulas)
         {
-            String consulta = "insert into Reserva(tipo_reserva, fecha_reserva, nombre_cliente, cedula_cliente) values (@tipo_reserva,@fecha,@cliente,@cedula);";
+            String consulta = "insert into proveedor(empresa, cont_nombre, cont_telefono, cont_email, dias_espera) values (@empresa, @cont_nombre, @cont_telefono, @cont_email, @dias_espera);";
             SqlCommand comando = new SqlCommand(consulta);
 
             SqlParameter tipo_reserva = new SqlParameter("@tipo_reserva", SqlDbType.VarChar, 10);
