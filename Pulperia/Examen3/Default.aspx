@@ -6,6 +6,10 @@
 
         <asp:Button ID="Button1" runat="server" Text="Consultar Proveedor" OnClick="ConsultarProveedor" />
         <p></p>
+
+        <asp:Button ID="Button4" runat="server" Text="Consultar Nombre de Empresa" OnClick="ConsultarProveedor" />
+        <p></p>
+
         <asp:Button ID="Button2" runat="server" Text="Consultar Producto" OnClick="ConsultarProducto" />
         <p></p>
 

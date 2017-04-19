@@ -15,7 +15,6 @@ namespace Examen3
         Adaptador adaptador = new Adaptador();
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void ConsultarProveedor(object sender, EventArgs e)
@@ -27,7 +26,7 @@ namespace Examen3
             grvReporte.DataBind();
         }
 
-        protected void ConsultarProducto(object sender, EventArgs e)
+                protected void ConsultarProducto(object sender, EventArgs e)
         {
             String consulta = "select Name as Nombre, Color as Color, StandardCost as Costo, ListPrice as Precio from [SalesLT].[Product]";
             DataTable tabla = adaptador.consultar(consulta);
